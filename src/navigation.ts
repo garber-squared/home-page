@@ -87,7 +87,7 @@ export const headerData = {
     // },
     {
       text: 'Blog',
-      href: getBlogPermalink(),
+      href: "https://alexandergarber.com",
       // links: [
       //   {
       //     text: "Alexander's Blog",
