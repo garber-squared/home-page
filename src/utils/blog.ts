@@ -45,7 +45,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   const { Content, remarkPluginFrontmatter } = await render(post);
 
   const {
-    publishDate: rawPublishDate = new Date(),
+    pubDate: rawPublishDate = new Date(),
     updateDate: rawUpdateDate,
     title,
     excerpt,
@@ -58,14 +58,14 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   } = data;
 
   const slug = cleanSlug(id); // cleanSlug(rawSlug.split('/').pop());
-  const publishDate = new Date(rawPublishDate);
+  const publishDate = rawPublishDate; // it's already a Date object
   const updateDate = rawUpdateDate ? new Date(rawUpdateDate) : undefined;
 
   const category = rawCategory
     ? {
-        slug: cleanSlug(rawCategory),
-        title: rawCategory,
-      }
+      slug: cleanSlug(rawCategory),
+      title: rawCategory,
+    }
     : undefined;
 
   const tags = rawTags.map((tag: string) => ({
@@ -100,7 +100,7 @@ const getNormalizedPost = async (post: CollectionEntry<'post'>): Promise<Post> =
   };
 };
 
-const load = async function (): Promise<Array<Post>> {
+const load = async function(): Promise<Array<Post>> {
   const posts = await getCollection('post');
   const normalizedPosts = posts.map(async (post) => await getNormalizedPost(post));
 
@@ -143,8 +143,8 @@ export const findPostsBySlugs = async (slugs: Array<string>): Promise<Array<Post
 
   const posts = await fetchPosts();
 
-  return slugs.reduce(function (r: Array<Post>, slug: string) {
-    posts.some(function (post: Post) {
+  return slugs.reduce(function(r: Array<Post>, slug: string) {
+    posts.some(function(post: Post) {
       return slug === post.slug && r.push(post);
     });
     return r;
@@ -157,8 +157,8 @@ export const findPostsByIds = async (ids: Array<string>): Promise<Array<Post>> =
 
   const posts = await fetchPosts();
 
-  return ids.reduce(function (r: Array<Post>, id: string) {
-    posts.some(function (post: Post) {
+  return ids.reduce(function(r: Array<Post>, id: string) {
+    posts.some(function(post: Post) {
       return id === post.id && r.push(post);
     });
     return r;

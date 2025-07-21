@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Garber Squared LLC
+    default: "Garber Squared LLC"
     template: '%s — AstroWind'
   description: "\U0001F680 Boutique Software Solutions for Your Business Needs"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: "Garber Squared LLC"
     images:
       - url: '~/assets/images/default.png'
         width: 1200
@@ -44,7 +44,7 @@ apps:
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: 'articles' # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
 
