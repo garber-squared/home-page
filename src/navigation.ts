@@ -88,6 +88,8 @@ export const headerData = {
     {
       text: 'Blog',
       href: "https://alexandergarber.com",
+      target: '_blank',
+      rel: 'noopener noreferrer',
       // links: [
       //   {
       //     text: "Alexander's Blog",
