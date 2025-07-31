@@ -1,3 +1,4 @@
+import vercel from '@astrojs/vercel'; // or `/edge` if you're targeting edge functions
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -22,8 +23,8 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
   hasExternalScripts ? (Array.isArray(items) ? items.map((item) => item()) : [items()]) : [];
 
 export default defineConfig({
-  output: 'static',
-
+  output: 'server',
+  adapter: vercel(),
   integrations: [
     tailwind({
       applyBaseStyles: false,
@@ -84,6 +85,11 @@ export default defineConfig({
     resolve: {
       alias: {
         '~': path.resolve(__dirname, './src'),
+      },
+    },
+    build: {
+      rollupOptions: {
+        external: ['nodemailer'],
       },
     },
   },

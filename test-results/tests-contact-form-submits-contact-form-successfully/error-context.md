@@ -1,0 +1,75 @@
+# Page snapshot
+
+```yaml
+- text: NEW
+- link "Astro v5.7 is now available! »":
+  - /url: https://astro.build/blog/astro-570/
+- link "If you like AstroWind, give us a star.":
+  - /url: https://github.com/onwidget/astrowind
+- banner:
+  - link "🚀 Garber Squared LLC":
+    - /url: /
+  - navigation "Main navigation":
+    - list:
+      - listitem:
+        - link "Blog":
+          - /url: https://alexandergarber.com
+  - button "Toggle between Dark and Light mode":
+    - img
+  - link "RSS Feed":
+    - /url: /rss.xml
+    - img
+- main:
+  - paragraph: Contact
+  - heading "Let's Connect!" [level=1]
+  - heading "Contact us today!" [level=2]
+  - paragraph: We'll be delighted to answer any question.
+  - text: Name
+  - textbox "Name"
+  - text: Email
+  - textbox "Email"
+  - text: Message
+  - textbox "Message"
+  - checkbox "By submitting this contact form, you acknowledge and agree to the collection of your personal information."
+  - text: By submitting this contact form, you acknowledge and agree to the collection of your personal information.
+  - button "Contact us"
+  - paragraph: Our support team typically responds within 24 business hours.
+  - heading "We are here to help!" [level=2]
+  - text: General support
+  - paragraph: Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.
+  - text: Contact sales
+  - paragraph: Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.
+  - text: Technical support
+  - paragraph: Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.
+  - img
+  - text: Phone
+  - paragraph: +1 (234) 567-890
+  - img
+  - text: Email
+  - paragraph: contact@support.com
+  - img
+  - text: Mailing address
+  - paragraph: P.O. Box 321, Walkersville, MD 21793, USA
+- contentinfo:
+  - link "Garber Squared LLC":
+    - /url: /
+  - link "Terms":
+    - /url: /terms
+  - text: ·
+  - link "Privacy Policy":
+    - /url: /privacy
+  - list:
+    - listitem:
+      - link "LinkedIn":
+        - /url: https://www.linkedin.com/company/garber-squared-llc
+        - img
+    - listitem:
+      - link "RSS":
+        - /url: /rss.xml
+        - img
+    - listitem:
+      - link "Github":
+        - /url: https://github.com/clockworkpc/
+        - img
+- text: Contact — AstroWind
+```
