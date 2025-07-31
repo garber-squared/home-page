@@ -1,6 +1,21 @@
 services:
-  astrowind:
-    build: .
-    container_name: astrowind
+  astrowind-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: astrowind-dev
+    command: npm run dev
+    ports:
+      - 4321:4321  # Astro dev server runs on 4321 by default
+    volumes:
+      - .:/app
+      - /app/node_modules  # Prevent overwrite from host
+
+  astrowind-prod:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: astrowind-prod
     ports:
       - 8080:8080
+
