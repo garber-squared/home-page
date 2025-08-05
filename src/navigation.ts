@@ -52,6 +52,7 @@ export const headerData = {
       target: "_blank",
       icon: "tabler:calendar-event"
     },
+
     //     // {
     //     //   text: 'Terms',
     //     //   href: getPermalink('/terms'),
