@@ -42,10 +42,16 @@ export const headerData = {
     //       text: 'About us',
     //       href: getPermalink('/about'),
     //     },
-    //     {
-    //       text: 'Contact',
-    //       href: getPermalink('/contact'),
-    //     },
+    // {
+    //   text: 'Contact',
+    //   href: getPermalink('/contact'),
+    // },
+    {
+      text: "Book a Consultation",
+      href: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ14FH_tW5TmBXcV02n9pFmJo3oKRpEmb4t7M4P62TbDz4am_uYRl4TNqJin7eJuVeFHbxr1YbTv?gv: true",
+      target: "_blank",
+      icon: "tabler:calendar-event"
+    },
     //     // {
     //     //   text: 'Terms',
     //     //   href: getPermalink('/terms'),

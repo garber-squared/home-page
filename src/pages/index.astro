@@ -11,6 +11,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
 
 const metadata = {
   title: 'Garber Squared LLC: Software Solutions for the Modern World',
@@ -19,6 +20,26 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
+  <Fragment slot="head">
+    <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet" />
+    <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+
+    <script is:inline>
+    window.addEventListener('load', function () {
+      const target = document.getElementById('calendar-button');
+      calendar.schedulingButton.load({
+        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ14FH_tW5TmBXcV02n9pFmJo3oKRpEmb4t7M4P62TbDz4am_uYRl4TNqJin7eJuVeFHbxr1YbTv?gv=true',
+        color: '#039BE5',
+        label: 'Book an appointment',
+        target,
+      });
+    });
+    </script>
+
+  </Fragment>
+
+
+
   <!-- Hero Widget ******************* -->
 
   <Hero
@@ -46,6 +67,7 @@ const metadata = {
       <span class="block mb-1 sm:hidden font-bold text-blue-600">Production--Ready--Go!</span>
       Software Solutions, API, Automation, Agentic AI Workflows, Machine Learning</Fragment>
   </Hero>
+
 
   <!-- Note Widget ******************* -->
 
