@@ -1,0 +1,176 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import Note from '~/components/widgets/Note.astro';
+
+const metadata = {
+  title: 'Proof of Consent - Garber Squared LLC',
+  description: 'Documentation of user consent for receiving SMS and messaging communications from Garber Squared LLC.',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+
+  <HeroText
+    tagline="Messaging Consent"
+    title="Proof of Consent Documentation"
+  />
+
+  <!-- Note Widget ******************* -->
+
+  <Note
+    title="Consent Policy"
+    description="This page documents how Garber Squared LLC obtains explicit consent from users before sending SMS or messaging communications."
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="How We Obtain Consent"
+    subtitle="Garber Squared LLC is committed to respecting your communication preferences and privacy."
+  >
+    <Fragment slot="content">
+      <p class="text-lg mb-4">
+        Before sending any SMS messages or other forms of messaging communications, we obtain explicit,
+        opt-in consent from our users through one or more of the following methods:
+      </p>
+
+      <div class="space-y-6 mt-6">
+        <div class="border-l-4 border-blue-500 pl-4">
+          <h3 class="text-xl font-bold mb-2">1. Contact Form Consent</h3>
+          <p class="text-gray-700 dark:text-gray-300">
+            When users submit our contact form at <a href="/contact" class="text-blue-600 hover:underline">/contact</a>,
+            they are presented with a clear disclaimer that states:
+          </p>
+          <blockquote class="mt-2 p-4 bg-gray-100 dark:bg-gray-800 rounded italic">
+            "By submitting this contact form, you acknowledge and agree to the collection of your personal information."
+          </blockquote>
+          <p class="text-gray-700 dark:text-gray-300 mt-2">
+            This consent includes permission to contact the user via their provided contact information,
+            including SMS messaging if a phone number is provided.
+          </p>
+        </div>
+
+        <div class="border-l-4 border-blue-500 pl-4">
+          <h3 class="text-xl font-bold mb-2">2. Explicit Opt-In Checkbox</h3>
+          <p class="text-gray-700 dark:text-gray-300">
+            Where applicable, users must actively check a box indicating their consent to receive
+            SMS messages and marketing communications. This checkbox is unchecked by default and
+            includes clear language such as:
+          </p>
+          <blockquote class="mt-2 p-4 bg-gray-100 dark:bg-gray-800 rounded italic">
+            "I consent to receive SMS messages and communications from Garber Squared LLC.
+            Message and data rates may apply. Reply STOP to opt out at any time."
+          </blockquote>
+        </div>
+
+        <div class="border-l-4 border-blue-500 pl-4">
+          <h3 class="text-xl font-bold mb-2">3. Appointment Booking Consent</h3>
+          <p class="text-gray-700 dark:text-gray-300">
+            When users book appointments through our Google Calendar integration, they provide
+            their contact information and are informed that we may send appointment reminders
+            and follow-up communications via SMS.
+          </p>
+        </div>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    title="Your Rights and Opt-Out Options"
+  >
+    <Fragment slot="content">
+      <div class="space-y-4">
+        <p class="text-lg">
+          We respect your right to control your communication preferences. You can opt out of
+          receiving SMS messages at any time using any of these methods:
+        </p>
+
+        <ul class="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+          <li>Reply <strong>STOP</strong> to any SMS message you receive from us</li>
+          <li>Reply <strong>UNSUBSCRIBE</strong> to any SMS message you receive from us</li>
+          <li>Contact us directly at <a href="mailto:alex@garbersquared.com" class="text-blue-600 hover:underline">alex@garbersquared.com</a></li>
+          <li>Call us at <a href="tel:+18445242556" class="text-blue-600 hover:underline">+1 (844) 524-2556</a></li>
+        </ul>
+
+        <p class="text-lg mt-6">
+          Upon receiving an opt-out request, we will promptly remove your contact information
+          from our messaging lists and cease all SMS communications within 24 hours.
+        </p>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Features2 Widget ************** -->
+
+  <Features2
+    title="Consent Documentation Details"
+    tagline="Compliance Information"
+    columns={2}
+    items={[
+      {
+        title: 'Consent Storage',
+        description: 'All consent records are securely stored with timestamps, including the date, time, method of consent, and user contact information.',
+        icon: 'tabler:database',
+      },
+      {
+        title: 'Message Frequency',
+        description: 'Users are informed about expected message frequency. We typically send no more than 4 messages per month unless related to active service engagements.',
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Data Privacy',
+        description: 'User contact information is never shared with third parties for marketing purposes and is only used for direct communication related to our services.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'TCPA Compliance',
+        description: 'Our consent practices comply with the Telephone Consumer Protection Act (TCPA) and require explicit opt-in before sending marketing messages.',
+        icon: 'tabler:license',
+      },
+    ]}
+  />
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    title="Contact Information"
+  >
+    <Fragment slot="content">
+      <p class="text-lg mb-4">
+        If you have any questions about our consent practices or wish to review, modify, or
+        revoke your consent, please contact us:
+      </p>
+
+      <div class="bg-blue-50 dark:bg-gray-800 p-6 rounded-lg">
+        <p class="font-bold text-xl mb-3">Garber Squared LLC</p>
+        <p class="mb-2">
+          <strong>Email:</strong>
+          <a href="mailto:alex@garbersquared.com" class="text-blue-600 hover:underline ml-2">
+            alex@garbersquared.com
+          </a>
+        </p>
+        <p class="mb-2">
+          <strong>Phone:</strong>
+          <a href="tel:+1844524-2556" class="text-blue-600 hover:underline ml-2">
+            +1 (844) 524-2556
+          </a>
+        </p>
+        <p>
+          <strong>Mailing Address:</strong>
+          <span class="ml-2">P.O. Box 321, Walkersville, MD 21793, USA</span>
+        </p>
+      </div>
+
+      <p class="text-sm text-gray-600 dark:text-gray-400 mt-6">
+        <strong>Last Updated:</strong> January 7, 2026
+      </p>
+    </Fragment>
+  </Content>
+</Layout>
