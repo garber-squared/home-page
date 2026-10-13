@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this is
 
-Marketing site for Garber Squared LLC: a static Astro 5 + Tailwind CSS 3 site built from the [AstroWind](https://github.com/onwidget/astrowind) template. The public pages no longer use the template's look: they are styled as a "statement of work" document (see `DESIGN.md`; product context is in `PRODUCT.md`). `README.md` is still the upstream AstroWind README, and the template's widget library is still in the tree but unused by any built page.
+Marketing site for Garber Squared LLC: a static Astro 5 + Tailwind CSS 3 site built from the [AstroWind](https://github.com/onwidget/astrowind) template. The public pages no longer use the template's look: they are styled as a "statement of work" document (see `DESIGN.md`; product context is in `PRODUCT.md`). The template's widgets, old layout, blog routes and theme scripts have been deleted; what remains of AstroWind is the config integration in `vendor/integration/`, the metadata components and a few utilities.
 
 ## Commands
 
@@ -35,22 +35,19 @@ Docker (use `docker compose`, not `docker-compose`):
 
 A page in `src/pages/` imports `~/layouts/DocumentLayout.astro`, passes a `metadata` object, and stacks components from `src/components/document/` (`Undertaking`, `Clause`, `SignatureBlock`) configured through props. `src/pages/index.astro` is the reference. All styling for this look lives in `src/assets/styles/document.css`, scoped under `.sow` with `--sow-*` custom properties; fonts are self-hosted in `public/fonts/`. `.md` pages (`privacy.md`, `terms.md`) use `MarkdownLayout.astro` via frontmatter, which wraps `DocumentLayout` and styles long-form text with `.sow-prose`.
 
-Layout chain: `Layout.astro` (html/head, metadata, analytics, theme) → `DocumentLayout.astro` (adds `DocumentHeader`/`DocumentFooter`) → page. `PageLayout.astro` and `src/components/widgets/` are the old AstroWind layout and widgets; only the disabled blog routes still reference them.
+Layout chain: `Layout.astro` (html/head, metadata, analytics) → `DocumentLayout.astro` (adds `DocumentHeader`/`DocumentFooter`) → page. The site is light-only; there is no theme toggle or dark mode.
 
-`src/navigation.ts` exports `bookingUrl` (the Google Calendar appointment link) and `contactEmail`, used by the document components; its `headerData`/`footerData` feed only the old layout. Build internal links with `getPermalink()` / `getAsset()` from `src/utils/permalinks.ts` so `base` and `trailingSlash` are respected.
+`src/navigation.ts` exports `bookingUrl` (the Google Calendar appointment link) and `contactEmail`, used by the document components. Build internal links with `getPermalink()` / `getAsset()` from `src/utils/permalinks.ts` so `base` and `trailingSlash` are respected.
 
 ### Blog
 
-- The blog is switched off (`apps.blog.isEnabled: false` in `src/config.yaml`), so none of the routes below are built and `/rss.xml` returns nothing. The real blog is external (alexandergarber.com).
-- The `post` collection (`src/content/config.ts`) loads from `src/data/post/`, which no longer exists; the demo posts were deleted.
-- `src/content/drafts/` holds ~260 Markdown posts with Jekyll-style frontmatter (`layout`, `date` as a free-form string). No collection loads them and their frontmatter does not match the `post` schema (`pubDate`, etc.), so they are not built.
-- Routes come from `src/pages/[...blog]/`, whose static paths are generated in `src/utils/blog.ts` from `APP_BLOG` in the config: the list lives at `/articles`, posts at `/%slug%`, plus `/category/*` and `/tag/*`.
+There is no on-site blog: the routes, components, `post` collection and RSS feed were removed, and `apps.blog.isEnabled` is `false` in `src/config.yaml`. The real blog is external (alexandergarber.com). `src/content/drafts/` still holds ~260 Markdown posts with Jekyll-style frontmatter; nothing loads or builds them.
 
 ### Conventions
 
 - `~` aliases `src/` (set in both `tsconfig.json` and the Vite config).
-- Icons use `astro-icon` names. All of `tabler:*` is available; only the `flat-color-icons` listed in `astro.config.ts` are bundled, so add new ones there.
-- Tailwind base styles are disabled in the integration; global styles and theme CSS variables come from `src/assets/styles/tailwind.css` and `src/components/CustomStyles.astro`.
+- Icons are inline SVG in the components. The `astro-icon` integration is still configured in `astro.config.ts` but nothing uses it.
+- Tailwind base styles are disabled in the integration and loaded from `src/assets/styles/tailwind.css` instead. Only a handful of utilities are used (`sr-only`, `not-italic`, `whitespace-nowrap`); `tailwind.config.js` has no theme extensions.
 - Prettier: 120 columns, single quotes, semicolons, `es5` trailing commas. ESLint allows unused variables prefixed with `_`.
 - There are no third-party scripts; booking is a plain link to Google Calendar. The layouts declare no `head` slot. The partytown integration is switched off by `hasExternalScripts = false` in `astro.config.ts`.
 
