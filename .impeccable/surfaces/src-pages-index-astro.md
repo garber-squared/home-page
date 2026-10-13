@@ -15,7 +15,7 @@ Scope: `src/pages/index.astro`, with its own layout, header and footer. Visitor 
 - Voice: "we" for the firm, Alexander Garber named as the principal the client works with.
 - Constraints: no price figures or rates, no invented clients, dates or durations. Legal pages, contact page and blog routes untouched. Light only.
 - Memorable moment: the signature line, where Alexander has signed and the visitor's line is the booking button.
-- Unresolved: real logo choice; whether a dark theme is wanted; real typical milestone durations.
+- Unresolved: whether a dark theme is wanted; real typical milestone durations.
 
 ## Direction contract
 

@@ -3,18 +3,21 @@ export interface Props {
   id: string;
   num: string;
   title: string;
+  isFirst?: boolean;
   intro?: string;
   note?: string;
   rows?: { ref: string; name: string; text?: string; href?: string; linkText?: string }[];
 }
 
-const { id, num, title, intro, note, rows = [] } = Astro.props;
+const { id, num, title, isFirst = false, intro, note, rows = [] } = Astro.props;
+
+const Heading = isFirst ? 'h1' : 'h2';
 ---
 
-<section class="sow-clause" id={id} aria-labelledby={`${id}-title`}>
+<section class:list={['sow-clause', { 'sow-clause--first': isFirst }]} id={id} aria-labelledby={`${id}-title`}>
   <p class="sow-num" aria-hidden="true">{num}</p>
   <div class="sow-clause__body">
-    <h2 class="sow-clause__title" id={`${id}-title`}>{title}</h2>
+    <Heading class="sow-clause__title" id={`${id}-title`}>{title}</Heading>
     {intro && <p class="sow-clause__intro">{intro}</p>}
     {
       rows.length > 0 && (

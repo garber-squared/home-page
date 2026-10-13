@@ -22,7 +22,7 @@ The delivery promise: "On Time, On Budget, On Demand." Garber Squared is chosen 
 
 - Visitors arrive to evaluate a consultancy before committing to a call.
 - Primary conversion path: a free 30-minute consultation with Alexander Garber, booked through the Google Calendar appointment link. The secondary path is email to alex@garbersquared.com. The `/contact` form does not submit anywhere and is not linked from the home page.
-- The blog lives off-site at alexandergarber.com and is linked from the header.
+- The blog lives off-site at alexandergarber.com and is linked from the header. The on-site blog is switched off in `src/config.yaml`.
 - The site also hosts compliance pages that third parties review: `/privacy`, `/terms`, and `/proof-of-consent` (SMS and messaging consent documentation).
 
 ## Capabilities and Constraints
@@ -71,7 +71,7 @@ The owner confirmed that the following real proof exists:
 
 None of the client names, case studies, or testimonials are in this repository yet. The owner must supply them; future work must not invent client names, quotes, metrics, or logos, and must leave a clearly marked gap where they are missing.
 
-Template leftovers that are not evidence and must not be presented as Garber Squared's own: the AstroWind demo posts in `src/data/post/`, the demo pages under `src/pages/homes/` and `src/pages/landing/`, `src/assets/images/hero-image.png` (alt text still reads "AstroWind Hero Image"), the onWidget footer credit, and the `%s — AstroWind` title template.
+The AstroWind demo posts, demo pages, hero image, announcement bar and title template have been removed. `README.md` is still the upstream AstroWind README.
 
 ## Product Principles
 

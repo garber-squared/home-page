@@ -144,7 +144,7 @@ The home page is the fixed-price engagement document a founder would sign. It is
 
 The material is flat ink on pale green bond paper. Structure comes from ruled lines and a double margin rule, never from boxes, tints or depth. Two typefaces do all the work: a heavy grotesque for everything that is numbered, titled or pressed, and a text serif for everything that is read. One red exists, and it means "this is the commitment": the FIXED PRICE stamp and the booking buttons. The page is dense and plain on purpose; it should read as a document someone could print and sign, not as a marketing template.
 
-**Scope.** This world currently covers the home page only, through `DocumentLayout`. `/contact`, `/privacy`, `/terms`, `/proof-of-consent` and the blog routes still render in the old AstroWind template layout (`PageLayout`, Inter, blue #0161EF, pill buttons). That old look is superseded and should not be extended. The site is light-only in this world. All tokens are CSS custom properties prefixed `--sow-`, declared on `.sow` (not `:root`) in `src/assets/styles/document.css`.
+**Scope.** This world covers every public page: the home page, `/contact`, `/privacy`, `/terms`, `/proof-of-consent` and the 404 page, all through `DocumentLayout` (Markdown pages via `MarkdownLayout`, long-form text styled by `.sow-prose`). The old AstroWind layout (`PageLayout`, Inter, blue, pill buttons) survives only behind the disabled blog routes; it is superseded and should not be extended. The site is light-only. All tokens are CSS custom properties prefixed `--sow-`, declared on `.sow` (not `:root`) in `src/assets/styles/document.css`.
 
 **Key Characteristics:**
 
@@ -234,7 +234,7 @@ Square corners everywhere; no radius is declared anywhere in the world. Buttons 
 
 ### Title block navigation
 
-The document header is the navigation. A flex row closed by a 4px ink rule: the firm name (Libre Franklin 800, uppercase, 0.04em) with "Statement of Work" in serif italic beside it, section links, and the small booking button. Links are Libre Franklin 700 at 0.9375rem with a 2px underline offset 0.3em that thickens to 4px on hover. From 80rem each link gains a Soft Ink reference prefix ("§2", "Sched. A", "Sched. B", "Ref."). Not sticky.
+The document header is the navigation. A flex row closed by a 4px ink rule: the logo (`src/assets/images/logo/09_cube-g-horizontal-ink.svg`, the cube-G lockup recoloured to Contract Ink with Soft Ink for the inner mark and the "SQUARED LLC" line; 2.75rem tall, 3.5rem from 40rem) with "Statement of Work" in serif italic beside it from 40rem, section links, and the small booking button. Links are Libre Franklin 700 at 0.9375rem with a 2px underline offset 0.3em that thickens to 4px on hover. From 80rem each link gains a Soft Ink reference prefix ("§2", "Sched. A", "Sched. B", "Ref."). Not sticky.
 
 ### Booking button
 

@@ -1,19 +1,23 @@
 ---
+import logo from '~/assets/images/logo/09_cube-g-horizontal-ink.svg';
 import { bookingUrl } from '~/navigation';
 import { getHomePermalink } from '~/utils/permalinks';
 
+const home = getHomePermalink();
+
 const links = [
-  { ref: '§2', text: 'How we work', href: '#how-we-work' },
-  { ref: 'Sched. A', text: 'Services', href: '#services' },
-  { ref: 'Sched. B', text: 'Exhibits', href: '#exhibits' },
+  { ref: '§2', text: 'How we work', href: `${home}#how-we-work` },
+  { ref: 'Sched. A', text: 'Services', href: `${home}#services` },
+  { ref: 'Sched. B', text: 'Exhibits', href: `${home}#exhibits` },
   { ref: 'Ref.', text: 'Blog', href: 'https://alexandergarber.com' },
 ];
 ---
 
 <header class="sow-title">
-  <a class="sow-title__name" href={getHomePermalink()}
-    ><b>Garber Squared LLC</b> <span class="sow-title__kind">Statement of Work</span></a
-  >
+  <a class="sow-title__name" href={home}>
+    <img class="sow-title__logo" src={logo.src} width={logo.width} height={logo.height} alt="Garber Squared LLC" />
+    <span class="sow-title__kind">Statement of Work</span>
+  </a>
   <a class="sow-title__book" href={bookingUrl}>Book a call</a>
   <nav class="sow-title__nav" aria-label="Document sections">
     {

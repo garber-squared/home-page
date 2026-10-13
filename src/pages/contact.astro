@@ -1,80 +1,24 @@
 ---
-import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import Layout from '~/layouts/DocumentLayout.astro';
+import Clause from '~/components/document/Clause.astro';
+import SignatureBlock from '~/components/document/SignatureBlock.astro';
+
+import { contactEmail } from '~/navigation';
 
 const metadata = {
   title: 'Contact',
 };
+
+const rows = [
+  { ref: 'C.1', name: 'Email', href: `mailto:${contactEmail}`, linkText: contactEmail },
+  // Phone hidden until a business number is supplied.
+  // { ref: 'C.2', name: 'Phone', text: '+1 (844) 524-2556' },
+  { ref: 'C.2', name: 'Mailing address', text: 'P.O. Box 321, Walkersville, MD 21793, USA' },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <Clause id="contact" num="C" title="Contact" rows={rows} isFirst />
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
-  <ContactUs
-    id="form"
-    title="Contact us today!"
-    subtitle="We'll be delighted to answer any question."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      // Phone hidden until a business number is supplied.
-      // {
-      //   title: 'Phone',
-      //   description: '+1 (844) 524-2556',
-      //   icon: 'tabler:headset',
-      // },
-      {
-        title: 'Email',
-        description: 'support@garbersquared.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Mailing address',
-        description: 'P.O. Box 321, Walkersville, MD 21793, USA',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+  <SignatureBlock id="execution" title="Execution" note="the first step is a conversation" />
 </Layout>

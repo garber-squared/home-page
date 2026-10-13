@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: "Garber Squared LLC"
-    template: '%s — AstroWind'
-  description: "\U0001F680 Boutique Software Solutions for Your Business Needs"
+    default: 'Garber Squared LLC'
+    template: '%s — Garber Squared LLC'
+  description: 'Garber Squared is a software consultancy led by Alexander Garber. Fixed scope and price, dated milestones with working software, and engagements that start within days.'
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: "Garber Squared LLC"
+    site_name: 'Garber Squared LLC'
     images:
       - url: '~/assets/images/default.png'
         width: 1200
@@ -24,7 +24,7 @@ metadata:
     type: website
   twitter:
     handle: '@alexandergarber'
-    site: '@onwidget'
+    site: '@alexandergarber'
     cardType: summary_large_image
 
 i18n:
@@ -33,7 +33,7 @@ i18n:
 
 apps:
   blog:
-    isEnabled: true
+    isEnabled: false
     postsPerPage: 6
 
     post:
