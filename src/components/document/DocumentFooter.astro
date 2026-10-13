@@ -1,0 +1,28 @@
+---
+import { contactEmail } from '~/navigation';
+import { getPermalink } from '~/utils/permalinks';
+
+const links = [
+  { text: 'Terms', href: getPermalink('/terms') },
+  { text: 'Privacy Policy', href: getPermalink('/privacy') },
+  { text: 'LinkedIn', href: 'https://www.linkedin.com/company/garber-squared-llc' },
+  { text: 'GitHub', href: 'https://github.com/clockworkpc/' },
+];
+---
+
+<footer class="sow-foot">
+  <address class="not-italic">
+    <b>Garber Squared LLC</b><br />
+    P.O. Box 321, Walkersville, MD 21793, USA<br />
+    <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+    {
+      /* Phone hidden until a business number is supplied.
+    <br />
+    <a href="tel:+18445242556">+1 (844) 524-2556</a>
+    */
+    }
+  </address>
+  <nav class="sow-foot__links" aria-label="Legal and social">
+    {links.map(({ text, href }) => <a href={href}>{text}</a>)}
+  </nav>
+</footer>

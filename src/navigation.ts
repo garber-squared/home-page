@@ -1,5 +1,10 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
+export const bookingUrl =
+  'https://calendar.google.com/calendar/appointments/schedules/AcZssZ14FH_tW5TmBXcV02n9pFmJo3oKRpEmb4t7M4P62TbDz4am_uYRl4TNqJin7eJuVeFHbxr1YbTv?gv=true';
+
+export const contactEmail = 'alex@garbersquared.com';
+
 export const headerData = {
   links: [
     // {
@@ -47,10 +52,10 @@ export const headerData = {
     //   href: getPermalink('/contact'),
     // },
     {
-      text: "Book a Consultation",
-      href: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ14FH_tW5TmBXcV02n9pFmJo3oKRpEmb4t7M4P62TbDz4am_uYRl4TNqJin7eJuVeFHbxr1YbTv?gv: true",
-      target: "_blank",
-      icon: "tabler:calendar-event"
+      text: 'Book a Consultation',
+      href: bookingUrl,
+      target: '_blank',
+      icon: 'tabler:calendar-event',
     },
     //     {
     //       text: 'Contact',
@@ -98,7 +103,7 @@ export const headerData = {
     // },
     {
       text: 'Blog',
-      href: "https://alexandergarber.com",
+      href: 'https://alexandergarber.com',
       target: '_blank',
       rel: 'noopener noreferrer',
       // links: [
@@ -185,7 +190,11 @@ export const footerData = {
   ],
   socialLinks: [
     // { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/garber-squared-llc' },
+    {
+      ariaLabel: 'LinkedIn',
+      icon: 'tabler:brand-linkedin',
+      href: 'https://www.linkedin.com/company/garber-squared-llc',
+    },
     // { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
     // { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
     { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },

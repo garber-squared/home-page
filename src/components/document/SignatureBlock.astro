@@ -1,0 +1,45 @@
+---
+import { bookingUrl, contactEmail } from '~/navigation';
+
+export interface Props {
+  id: string;
+  title: string;
+  note?: string;
+}
+
+const { id, title, note } = Astro.props;
+---
+
+<section class="sow-sign" aria-labelledby={id}>
+  <h2 class="sow-sign__title" id={id}>{title}{note && <i>{note}</i>}</h2>
+  <div class="sow-sign__parties">
+    <div>
+      <div class="sow-sign__line"><span class="sow-sign__autograph">Alexander Garber</span></div>
+      <p class="sow-sign__party">Signed for Garber Squared<br /><b>Alexander Garber, Principal</b></p>
+    </div>
+    <div>
+      <div class="sow-sign__line">
+        <svg
+          class="sow-sign__cross"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="3"
+          aria-hidden="true"
+        >
+          <path d="M4 4l16 16M20 4L4 20"></path>
+        </svg>
+        <a class="sow-btn" href={bookingUrl}>
+          Book a free 30-minute consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+            <path d="M3 12h17M13 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+      <p class="sow-sign__party">
+        <b>Your signature</b><br />
+        A call with Alexander, free of charge. Or write to <a href={`mailto:${contactEmail}`}>{contactEmail}</a>.
+      </p>
+    </div>
+  </div>
+</section>

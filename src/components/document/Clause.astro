@@ -1,0 +1,39 @@
+---
+export interface Props {
+  id: string;
+  num: string;
+  title: string;
+  intro?: string;
+  note?: string;
+  rows?: { ref: string; name: string; text?: string; href?: string; linkText?: string }[];
+}
+
+const { id, num, title, intro, note, rows = [] } = Astro.props;
+---
+
+<section class="sow-clause" id={id} aria-labelledby={`${id}-title`}>
+  <p class="sow-num" aria-hidden="true">{num}</p>
+  <div class="sow-clause__body">
+    <h2 class="sow-clause__title" id={`${id}-title`}>{title}</h2>
+    {intro && <p class="sow-clause__intro">{intro}</p>}
+    {
+      rows.length > 0 && (
+        <ol class="sow-rows">
+          {rows.map(({ ref, name, text, href, linkText }) => (
+            <li class="sow-row">
+              <span class="sow-row__num">{ref}</span>
+              <h3 class="sow-row__name">{name}</h3>
+              {(text || href) && (
+                <p class="sow-row__text">
+                  {text} {href && <a href={href}>{linkText ?? href}</a>}
+                </p>
+              )}
+            </li>
+          ))}
+        </ol>
+      )
+    }
+    <slot />
+    {note && <p class="sow-note">{note}</p>}
+  </div>
+</section>

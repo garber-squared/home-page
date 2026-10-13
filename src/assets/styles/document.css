@@ -1,0 +1,680 @@
+/* The "statement of work" world used by DocumentLayout. Everything is scoped under .sow. */
+
+@font-face {
+  font-family: 'Libre Franklin Variable';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/libre-franklin-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Source Serif 4 Variable';
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('/fonts/source-serif-4-latin-wght-normal.woff2') format('woff2-variations');
+}
+@font-face {
+  font-family: 'Source Serif 4 Variable';
+  font-style: italic;
+  font-weight: 200 900;
+  font-display: swap;
+  src: url('/fonts/source-serif-4-latin-wght-italic.woff2') format('woff2-variations');
+}
+
+body:has(.sow) {
+  background: #e4efe6;
+}
+
+.sow {
+  --sow-paper: #e4efe6;
+  --sow-ink: #10203a;
+  --sow-ink-soft: #3a4a5f;
+  --sow-stamp: #c8102e;
+  --sow-sans: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif;
+  --sow-serif: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif;
+  --sow-margin: 3.25rem;
+  --sow-gutter: 1rem;
+  --sow-edge: 1rem;
+  --sow-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  color-scheme: light;
+  min-height: 100vh;
+  background: var(--sow-paper);
+  color: var(--sow-ink);
+  font-family: var(--sow-serif);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: normal;
+  font-variant-numeric: tabular-nums lining-nums;
+  caret-color: var(--sow-ink);
+}
+
+.sow ::selection {
+  background: var(--sow-ink);
+  color: var(--sow-paper);
+}
+
+.sow a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+.sow a:hover {
+  text-decoration-thickness: 3px;
+}
+.sow a:focus-visible {
+  outline: 3px solid var(--sow-ink);
+  outline-offset: 3px;
+}
+
+/* Title block: the document header doubles as navigation */
+
+.sow-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  padding: 0.875rem var(--sow-edge);
+  border-bottom: 4px solid var(--sow-ink);
+}
+.sow a.sow-title__name {
+  flex: 1;
+  text-decoration: none;
+  font-size: 1.0625rem;
+  font-style: italic;
+}
+.sow-title__name b {
+  font-family: var(--sow-sans);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sow-title__kind {
+  display: none;
+}
+.sow-title__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.25rem;
+  width: 100%;
+  font-family: var(--sow-sans);
+  font-size: 0.9375rem;
+  font-weight: 700;
+}
+.sow .sow-title__nav a {
+  padding: 0.375rem 0;
+  text-decoration: none;
+}
+.sow-title__text {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+.sow-title__nav a:hover .sow-title__text {
+  text-decoration-thickness: 4px;
+}
+.sow-title__ref {
+  display: none;
+  margin-right: 0.4em;
+  color: var(--sow-ink-soft);
+  font-weight: 600;
+}
+.sow a.sow-title__book {
+  padding: 0.45rem 0.7rem;
+  border: 2px solid var(--sow-ink);
+  background: var(--sow-ink);
+  color: var(--sow-paper);
+  font-family: var(--sow-sans);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.2s var(--sow-ease),
+    color 0.2s var(--sow-ease);
+}
+.sow a.sow-title__book:hover {
+  background: var(--sow-paper);
+  color: var(--sow-ink);
+}
+
+/* The sheet and its double margin rule */
+
+.sow-sheet {
+  position: relative;
+}
+.sow-sheet::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(var(--sow-margin) - 6px);
+  width: 6px;
+  border-left: 1px solid var(--sow-ink);
+  border-right: 1px solid var(--sow-ink);
+  pointer-events: none;
+}
+
+.sow-num {
+  font-family: var(--sow-sans);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  text-align: right;
+  padding-right: 0.75rem;
+}
+
+/* Clause 1: the undertaking */
+
+.sow-undertaking {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--sow-margin) minmax(0, 1fr);
+  padding-bottom: 2.5rem;
+}
+.sow-undertaking > .sow-num {
+  grid-column: 1;
+  font-size: 1.125rem;
+  padding-top: 1.55rem;
+}
+.sow-undertaking > .sow-num--lead {
+  grid-row: 1;
+  font-size: 1.5rem;
+  padding-top: 3.6rem;
+}
+.sow-lead {
+  grid-column: 2;
+  grid-row: 1;
+  max-width: 38rem;
+  padding: 3.5rem var(--sow-edge) 1.25rem var(--sow-gutter);
+  font-size: 1.1875rem;
+  line-height: 1.4;
+}
+.sow-promise {
+  display: contents;
+}
+.sow-promise__words {
+  grid-column: 2;
+  grid-row: calc(var(--i) * 2);
+  padding: 1rem var(--sow-edge) 0 var(--sow-gutter);
+  border-top: 1px solid var(--sow-ink);
+  font-family: var(--sow-sans);
+  font-size: clamp(2.75rem, 13.5vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+.sow-undertaking > .sow-num:not(.sow-num--lead) {
+  grid-row: calc(var(--i) * 2);
+}
+.sow-how {
+  grid-column: 2;
+  grid-row: calc(var(--i) * 2 + 1);
+  max-width: 30rem;
+  padding: 0.5rem var(--sow-edge) 1.25rem var(--sow-gutter);
+}
+.sow-index {
+  grid-column: 2;
+  grid-row: 8;
+  margin: 0.5rem var(--sow-edge) 0 var(--sow-gutter);
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--sow-ink);
+}
+.sow-index__title,
+.sow-sign__title {
+  font-family: var(--sow-sans);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sow-index__title i,
+.sow-sign__title i {
+  margin-left: 0.6em;
+  font-family: var(--sow-serif);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.sow-index ol {
+  margin-top: 0.75rem;
+}
+.sow-index li {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr);
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--sow-ink);
+  line-height: 1.3;
+}
+.sow-index li b {
+  font-family: var(--sow-sans);
+  font-weight: 700;
+}
+.sow .sow-index li a {
+  text-decoration: none;
+}
+.sow .sow-index li a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+}
+
+/* The stamp is struck across the title block's rule */
+
+.sow-stamp {
+  position: absolute;
+  z-index: 1;
+  top: -0.35rem;
+  right: 0.875rem;
+  padding: 0.4rem 0.7rem 0.4rem 0.85rem;
+  border: 4px solid var(--sow-stamp);
+  outline: 2px solid var(--sow-stamp);
+  outline-offset: 3px;
+  background: var(--sow-paper);
+  color: var(--sow-stamp);
+  font-family: var(--sow-sans);
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.09em;
+  white-space: nowrap;
+  transform: rotate(-5deg);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .sow-stamp {
+    animation: sow-stamp-land 0.7s var(--sow-ease) 0.35s backwards;
+  }
+}
+@keyframes sow-stamp-land {
+  from {
+    opacity: 0;
+    filter: blur(6px);
+    transform: rotate(-11deg) scale(1.9);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+    transform: rotate(-4deg) scale(0.96);
+  }
+}
+
+/* Signature block: the booking action */
+
+.sow-sign {
+  padding: 2.25rem var(--sow-edge) 3rem calc(var(--sow-margin) + var(--sow-gutter));
+  border-top: 4px solid var(--sow-ink);
+}
+.sow-sign__parties {
+  display: grid;
+  gap: 2rem;
+  margin-top: 0.5rem;
+}
+.sow-sign__line {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.875rem;
+  min-height: 4.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--sow-ink);
+}
+.sow-sign__autograph {
+  font-size: 1.875rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1;
+}
+.sow-sign__cross {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: 0.9rem;
+}
+.sow-sign__party {
+  margin-top: 0.625rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.sow-sign__party b {
+  font-family: var(--sow-sans);
+  font-weight: 700;
+}
+.sow a.sow-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: -0.375rem;
+  padding: 1.05rem 1.25rem;
+  border: 2px solid var(--sow-ink);
+  background: var(--sow-stamp);
+  color: #fff;
+  font-family: var(--sow-sans);
+  font-size: 1.0625rem;
+  font-weight: 800;
+  line-height: 1.15;
+  text-decoration: none;
+  transition:
+    background-color 0.2s var(--sow-ease),
+    transform 0.2s var(--sow-ease);
+}
+.sow a.sow-btn:hover {
+  background: var(--sow-ink);
+}
+.sow a.sow-btn:active {
+  transform: translateY(2px);
+}
+.sow-btn svg {
+  flex: none;
+  width: 1.375rem;
+  height: 1.375rem;
+  transition: transform 0.2s var(--sow-ease);
+}
+.sow-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Numbered clauses and schedules */
+
+.sow-clause {
+  display: grid;
+  grid-template-columns: var(--sow-margin) minmax(0, 1fr);
+  padding: 3.5rem 0 3rem;
+  border-top: 2px solid var(--sow-ink);
+}
+.sow-clause > .sow-num {
+  font-size: 1.5rem;
+  padding-top: 0.35rem;
+}
+.sow-clause__body {
+  padding: 0 var(--sow-edge) 0 var(--sow-gutter);
+}
+.sow-clause__title {
+  font-family: var(--sow-sans);
+  font-size: clamp(2rem, 8vw, 4.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.sow-clause__intro {
+  max-width: 40rem;
+  margin-top: 1rem;
+  font-size: 1.1875rem;
+  line-height: 1.45;
+}
+.sow-rows {
+  margin-top: 2rem;
+  border-bottom: 1px solid var(--sow-ink);
+}
+.sow-row {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  gap: 0.25rem 0.5rem;
+  padding: 1rem 0 1.125rem;
+  border-top: 1px solid var(--sow-ink);
+}
+.sow-row__num {
+  font-family: var(--sow-sans);
+  font-weight: 700;
+  padding-top: 0.3rem;
+}
+.sow-row__name {
+  font-family: var(--sow-sans);
+  font-size: 1.375rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.sow-row__text,
+.sow-row__ref {
+  grid-column: 2;
+  max-width: 36rem;
+}
+.sow-row__ref {
+  font-size: 1rem;
+  font-style: italic;
+}
+.sow-row__quote {
+  grid-column: 2;
+  max-width: 40rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+.sow-note {
+  max-width: 40rem;
+  margin-top: 1rem;
+  color: var(--sow-ink-soft);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* Footer: the document's imprint */
+
+.sow-foot {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem var(--sow-edge) 2.5rem calc(var(--sow-margin) + var(--sow-gutter));
+  border-top: 4px solid var(--sow-ink);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.sow-foot b {
+  font-family: var(--sow-sans);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.sow-foot a {
+  white-space: nowrap;
+}
+.sow-foot__links {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 0.25rem 2rem;
+  font-family: var(--sow-sans);
+  font-weight: 600;
+}
+.sow-foot__links a {
+  padding: 0.375rem 0;
+}
+
+@media (min-width: 40rem) {
+  .sow {
+    --sow-margin: 5.5rem;
+    --sow-gutter: 1.5rem;
+    --sow-edge: 1.5rem;
+    font-size: 1.1875rem;
+  }
+  .sow-title__kind {
+    display: inline;
+  }
+  .sow-undertaking > .sow-num {
+    font-size: 1.75rem;
+  }
+  .sow-undertaking > .sow-num--lead {
+    font-size: 2.25rem;
+    padding-top: 4.1rem;
+  }
+  .sow-lead {
+    padding-top: 4rem;
+  }
+  .sow-stamp {
+    top: -0.5rem;
+    right: 1.5rem;
+    font-size: 1.375rem;
+  }
+  .sow-clause > .sow-num {
+    font-size: 2.25rem;
+  }
+  .sow-promise__words {
+    font-size: clamp(3.5rem, 11vw, 6rem);
+  }
+  .sow-sign__parties {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 3rem;
+  }
+  .sow a.sow-btn {
+    padding: 1.2rem 1.4rem;
+    font-size: 1.125rem;
+  }
+  .sow-row {
+    grid-template-columns: 4rem minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: 1.5rem;
+    align-items: baseline;
+  }
+  .sow-row__text {
+    grid-column: 3;
+  }
+  .sow-row__ref,
+  .sow-row__quote {
+    grid-column: 2 / 4;
+  }
+  .sow-row__name {
+    font-size: 1.625rem;
+  }
+  .sow-foot {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+  .sow-foot__links {
+    display: flex;
+    gap: 0.25rem 1.5rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .sow {
+    --sow-margin: 6.5rem;
+    --sow-gutter: 2rem;
+    --sow-edge: 2rem;
+  }
+  .sow-title {
+    padding: 1.25rem var(--sow-edge) 1.25rem calc(var(--sow-margin) + var(--sow-gutter));
+  }
+  .sow-title__nav {
+    order: 1;
+    width: auto;
+  }
+  .sow a.sow-title__book {
+    order: 2;
+  }
+  .sow-undertaking {
+    grid-template-columns: var(--sow-margin) max-content minmax(10rem, 14rem) minmax(13rem, 1fr);
+    padding-bottom: 0;
+  }
+  .sow-undertaking > .sow-num {
+    align-self: center;
+    font-size: 2.25rem;
+    padding-top: 0;
+  }
+  .sow-undertaking > .sow-num:not(.sow-num--lead) {
+    grid-row: calc(var(--i) + 1);
+  }
+  .sow-lead {
+    grid-column: 2 / 5;
+    max-width: none;
+    padding: 1.5rem 19rem 1.5rem var(--sow-gutter);
+    border-bottom: 2px solid var(--sow-ink);
+    font-size: 1.3125rem;
+  }
+  .sow-promise__words {
+    grid-row: calc(var(--i) + 1);
+    padding: 0.06em 1.5rem 0.1em var(--sow-gutter);
+    border-top: 0;
+    border-bottom: 1px solid var(--sow-ink);
+    font-size: clamp(4.25rem, 7.1vw, 6rem);
+    line-height: 1.08;
+  }
+  .sow-how {
+    grid-column: 3;
+    grid-row: calc(var(--i) + 1);
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    max-width: none;
+    padding: 0 1.25rem 0 0;
+    border-bottom: 1px solid var(--sow-ink);
+    font-size: 1.0625rem;
+    line-height: 1.3;
+  }
+  .sow-promise__words--last,
+  .sow-how--last {
+    border-bottom: 0;
+  }
+  .sow-index {
+    grid-column: 4;
+    grid-row: 2 / 5;
+    margin: 0;
+    padding: 1.25rem var(--sow-edge) 1rem 1.5rem;
+    border-top: 0;
+    border-left: 1px solid var(--sow-ink);
+    font-size: 1.0625rem;
+  }
+  .sow-stamp {
+    top: -0.75rem;
+    right: 2.5rem;
+    font-size: 1.75rem;
+  }
+  .sow a.sow-btn {
+    white-space: nowrap;
+  }
+  .sow-sign__line {
+    min-height: 5.5rem;
+  }
+  .sow-sign__autograph {
+    font-size: 2.375rem;
+  }
+  .sow-clause {
+    padding: 5rem 0 4rem;
+  }
+  .sow-clause > .sow-num {
+    font-size: 3rem;
+    padding-top: 0.2rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .sow {
+    --sow-margin: 9rem;
+    --sow-edge: 2.5rem;
+  }
+  .sow-title__nav {
+    gap: 0.25rem 2rem;
+    font-size: 1rem;
+  }
+  .sow-title__ref {
+    display: inline;
+  }
+  .sow-undertaking {
+    grid-template-columns: var(--sow-margin) max-content minmax(11rem, 17rem) minmax(15rem, 1fr);
+  }
+  .sow-undertaking > .sow-num {
+    font-size: 2.5rem;
+  }
+  .sow-lead {
+    padding-right: 25rem;
+    font-size: 1.375rem;
+  }
+  .sow-how,
+  .sow-index {
+    font-size: inherit;
+  }
+  .sow-index {
+    padding: 1.5rem var(--sow-edge) 1rem 1.75rem;
+  }
+  .sow-stamp {
+    right: 3rem;
+    font-size: 2.25rem;
+  }
+  .sow a.sow-btn {
+    padding: 1.25rem 1.5rem;
+    font-size: 1.25rem;
+  }
+  .sow-clause > .sow-num {
+    font-size: 3.25rem;
+  }
+}

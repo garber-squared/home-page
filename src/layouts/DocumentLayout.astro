@@ -1,0 +1,25 @@
+---
+import '~/assets/styles/document.css';
+
+import Layout from '~/layouts/Layout.astro';
+import DocumentHeader from '~/components/document/DocumentHeader.astro';
+import DocumentFooter from '~/components/document/DocumentFooter.astro';
+
+import type { MetaData } from '~/types';
+
+export interface Props {
+  metadata?: MetaData;
+}
+
+const { metadata } = Astro.props;
+---
+
+<Layout metadata={metadata}>
+  <div class="sow">
+    <DocumentHeader />
+    <main class="sow-sheet">
+      <slot />
+    </main>
+    <DocumentFooter />
+  </div>
+</Layout>

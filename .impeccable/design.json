@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-12T22:00:00Z",
+  "title": "Design System: Garber Squared",
+  "extensions": {
+    "colorMeta": {
+      "stamp-red": {
+        "role": "primary",
+        "displayName": "Stamp Red",
+        "canonical": "#c8102e",
+        "tonalRamp": [
+          "oklch(15% 0.06 22)",
+          "oklch(27% 0.11 22)",
+          "oklch(39% 0.16 22)",
+          "oklch(51% 0.21 22)",
+          "oklch(63% 0.19 22)",
+          "oklch(75% 0.12 22)",
+          "oklch(86% 0.07 22)",
+          "oklch(95% 0.025 22)"
+        ]
+      },
+      "bond-paper": {
+        "role": "neutral",
+        "displayName": "Bond Paper",
+        "canonical": "#e4efe6",
+        "tonalRamp": [
+          "oklch(15% 0.015 152)",
+          "oklch(27% 0.015 152)",
+          "oklch(39% 0.015 152)",
+          "oklch(51% 0.015 152)",
+          "oklch(63% 0.015 152)",
+          "oklch(75% 0.015 152)",
+          "oklch(86% 0.015 152)",
+          "oklch(93.5% 0.015 152)"
+        ]
+      },
+      "contract-ink": {
+        "role": "neutral",
+        "displayName": "Contract Ink",
+        "canonical": "#10203a",
+        "tonalRamp": [
+          "oklch(15% 0.05 262)",
+          "oklch(24.5% 0.05 262)",
+          "oklch(39% 0.05 262)",
+          "oklch(51% 0.05 262)",
+          "oklch(63% 0.045 262)",
+          "oklch(75% 0.035 262)",
+          "oklch(86% 0.025 262)",
+          "oklch(95% 0.012 262)"
+        ]
+      },
+      "soft-ink": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#3a4a5f",
+        "tonalRamp": [
+          "oklch(15% 0.04 256)",
+          "oklch(27% 0.04 256)",
+          "oklch(40% 0.04 256)",
+          "oklch(51% 0.04 256)",
+          "oklch(63% 0.035 256)",
+          "oklch(75% 0.03 256)",
+          "oklch(86% 0.02 256)",
+          "oklch(95% 0.01 256)"
+        ]
+      },
+      "stamp-reverse": {
+        "role": "neutral",
+        "displayName": "Stamp Reverse",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(86% 0 0)",
+          "oklch(100% 0 0)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The three promise lines of clause 1. Never wraps."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Clause and schedule titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The name of a row inside a clause."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Clause numbers hanging in the margin, right-aligned against the double rule."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "The opening sentence of clause 1 and clause intros."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Clause text. Tabular lining numerals."
+      },
+      "aside": {
+        "displayName": "Aside",
+        "purpose": "Italic document asides: clause notes, row references, label asides."
+      },
+      "autograph": {
+        "displayName": "Autograph",
+        "purpose": "The typeset italic signature on the firm's signature line."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase titles of the signature block and schedule index."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Booking button text."
+      },
+      "stamp": {
+        "displayName": "Stamp",
+        "purpose": "FIXED PRICE, uppercase and tracked."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "sow-ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "The one easing curve, used for the stamp landing and button transitions."
+      },
+      {
+        "name": "stamp-land",
+        "value": "sow-stamp-land 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards",
+        "purpose": "The single authored moment: the stamp lands on load from rotate(-11deg) scale(1.9), blurred and transparent, through rotate(-4deg) scale(0.96) at 55%, settling at rotate(-5deg). Only under prefers-reduced-motion: no-preference."
+      },
+      {
+        "name": "button-hover",
+        "value": "background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Booking button fill changes from Stamp Red to Contract Ink on hover."
+      },
+      {
+        "name": "arrow-nudge",
+        "value": "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); translateX(4px)",
+        "purpose": "The large booking button's arrow moves 4px right on hover."
+      },
+      {
+        "name": "button-press",
+        "value": "translateY(2px)",
+        "purpose": "The large booking button moves down 2px while active."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "40",
+        "value": "40rem"
+      },
+      {
+        "name": "64",
+        "value": "64rem"
+      },
+      {
+        "name": "80",
+        "value": "80rem"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Title Block Navigation",
+      "kind": "nav",
+      "refersTo": "title-block",
+      "description": "The document header doubles as navigation: firm name, section links with reference prefixes, and the small booking button, closed by a 4px ink rule.",
+      "html": "<header class=\"ds-title\"><a class=\"ds-title-name\" href=\"#\"><b>Garber Squared LLC</b> <span>Statement of Work</span></a><nav class=\"ds-title-nav\" aria-label=\"Document sections\"><a href=\"#\"><span class=\"ds-title-ref\">&sect;2</span><span class=\"ds-title-text\">How we work</span></a><a href=\"#\"><span class=\"ds-title-ref\">Sched. A</span><span class=\"ds-title-text\">Services</span></a><a href=\"#\"><span class=\"ds-title-ref\">Sched. B</span><span class=\"ds-title-text\">Exhibits</span></a><a href=\"#\"><span class=\"ds-title-ref\">Ref.</span><span class=\"ds-title-text\">Blog</span></a></nav><a class=\"ds-title-book\" href=\"#\">Book a call</a></header>",
+      "css": ".ds-title { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.25rem; padding: 1.25rem 2rem; border-bottom: 4px solid #10203a; background: #e4efe6; color: #10203a; } .ds-title a { color: inherit; text-decoration: none; } .ds-title a:focus-visible { outline: 3px solid #10203a; outline-offset: 3px; } .ds-title-name { flex: 1; font-family: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif; font-size: 1.0625rem; font-style: italic; } .ds-title-name b { font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-style: normal; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; } .ds-title-nav { display: flex; flex-wrap: wrap; gap: 0.25rem 2rem; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 1rem; font-weight: 700; } .ds-title-nav a { padding: 0.375rem 0; } .ds-title-ref { margin-right: 0.4em; color: #3a4a5f; font-weight: 600; } .ds-title-text { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.3em; } .ds-title-nav a:hover .ds-title-text { text-decoration-thickness: 4px; } .ds-title-book { padding: 0.45rem 0.7rem; border: 2px solid #10203a; background: #10203a; color: #e4efe6 !important; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 0.9375rem; font-weight: 800; line-height: 1; white-space: nowrap; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-title-book:hover { background: #e4efe6; color: #10203a !important; }"
+    },
+    {
+      "name": "Booking Button (Large)",
+      "kind": "button",
+      "refersTo": "button-booking",
+      "description": "The one primary action, placed on the visitor's signature line. Hover turns the fill to ink and nudges the arrow 4px.",
+      "html": "<a class=\"ds-btn-booking\" href=\"#\">Book a free 30-minute consultation <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" aria-hidden=\"true\"><path d=\"M3 12h17M13 5l7 7-7 7\"></path></svg></a>",
+      "css": ".ds-btn-booking { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1.05rem 1.25rem; border: 2px solid #10203a; border-radius: 0; background: #c8102e; color: #fff; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; font-weight: 800; line-height: 1.15; text-decoration: none; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-booking:hover { background: #10203a; } .ds-btn-booking:active { transform: translateY(2px); } .ds-btn-booking:focus-visible { outline: 3px solid #10203a; outline-offset: 3px; } .ds-btn-booking svg { flex: none; width: 1.375rem; height: 1.375rem; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-booking:hover svg { transform: translateX(4px); }"
+    },
+    {
+      "name": "Header Booking Button (Small)",
+      "kind": "button",
+      "refersTo": "button-booking-header",
+      "description": "Compact booking button in the title block. Ink fill with paper text, so the stamp stays the only red at the top; inverts on hover.",
+      "html": "<a class=\"ds-btn-booking-sm\" href=\"#\">Book a call</a>",
+      "css": ".ds-btn-booking-sm { display: inline-block; padding: 0.45rem 0.7rem; border: 2px solid #10203a; border-radius: 0; background: #10203a; color: #e4efe6; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 0.9375rem; font-weight: 800; line-height: 1; text-decoration: none; white-space: nowrap; transition: background-color 0.2s, color 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-booking-sm:hover { background: #e4efe6; color: #10203a; } .ds-btn-booking-sm:focus-visible { outline: 3px solid #10203a; outline-offset: 3px; }"
+    },
+    {
+      "name": "FIXED PRICE Stamp",
+      "kind": "custom",
+      "refersTo": "stamp",
+      "description": "Red double-framed stamp struck across the title block's rule, rotated -5deg. Lands once on load when motion is allowed.",
+      "html": "<div class=\"ds-stamp-stage\"><p class=\"ds-stamp\" aria-hidden=\"true\">FIXED PRICE</p></div>",
+      "css": ".ds-stamp-stage { padding: 1.5rem 1.25rem; background: #e4efe6; } .ds-stamp { display: inline-block; margin: 0; padding: 0.4rem 0.7rem 0.4rem 0.85rem; border: 4px solid #c8102e; outline: 2px solid #c8102e; outline-offset: 3px; background: #e4efe6; color: #c8102e; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 1.75rem; font-weight: 800; line-height: 1; letter-spacing: 0.09em; white-space: nowrap; transform: rotate(-5deg); } @media (prefers-reduced-motion: no-preference) { .ds-stamp { animation: ds-stamp-land 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.35s backwards; } } @keyframes ds-stamp-land { from { opacity: 0; filter: blur(6px); transform: rotate(-11deg) scale(1.9); } 55% { opacity: 1; filter: blur(0); transform: rotate(-4deg) scale(0.96); } }"
+    },
+    {
+      "name": "Promise Row",
+      "kind": "custom",
+      "refersTo": "promise-row",
+      "description": "A clause number hanging left of the double margin rule, the promise at display scale, and the mechanism that keeps it.",
+      "html": "<div class=\"ds-promise\"><p class=\"ds-promise-num\" aria-hidden=\"true\">1.1</p><p class=\"ds-promise-words\">On Time.</p><p class=\"ds-promise-how\">Dated milestones, with working software at each one.</p></div>",
+      "css": ".ds-promise { position: relative; display: grid; grid-template-columns: 6.5rem max-content minmax(10rem, 14rem); align-items: center; background: #e4efe6; color: #10203a; } .ds-promise::before { content: ''; position: absolute; top: 0; bottom: 0; left: calc(6.5rem - 6px); width: 6px; border-left: 1px solid #10203a; border-right: 1px solid #10203a; } .ds-promise p { margin: 0; } .ds-promise-num { padding-right: 0.75rem; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; text-align: right; } .ds-promise-words { padding: 0.06em 1.5rem 0.1em 2rem; border-bottom: 1px solid #10203a; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 4.25rem; font-weight: 800; line-height: 1.08; letter-spacing: -0.035em; white-space: nowrap; } .ds-promise-how { align-self: stretch; display: flex; align-items: center; padding: 0 1.25rem 0 0; border-bottom: 1px solid #10203a; font-family: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif; font-size: 1.0625rem; line-height: 1.3; }"
+    },
+    {
+      "name": "Signature Line",
+      "kind": "custom",
+      "refersTo": "signature-line",
+      "description": "Two signature lines on 2px ink rules: the firm's typeset italic signature, and the visitor's line carrying a cross and the booking button.",
+      "html": "<div class=\"ds-sign\"><div><div class=\"ds-sign-line\"><span class=\"ds-sign-autograph\">Alexander Garber</span></div><p class=\"ds-sign-party\">Signed for Garber Squared<br><b>Alexander Garber, Principal</b></p></div><div><div class=\"ds-sign-line\"><svg class=\"ds-sign-cross\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" aria-hidden=\"true\"><path d=\"M4 4l16 16M20 4L4 20\"></path></svg><a class=\"ds-sign-btn\" href=\"#\">Book a free 30-minute consultation <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" aria-hidden=\"true\"><path d=\"M3 12h17M13 5l7 7-7 7\"></path></svg></a></div><p class=\"ds-sign-party\"><b>Your signature</b><br>A call with Alexander, free of charge.</p></div></div>",
+      "css": ".ds-sign { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 3rem; padding: 1rem 1.5rem; background: #e4efe6; color: #10203a; font-family: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif; } .ds-sign-line { display: flex; align-items: flex-end; gap: 0.875rem; min-height: 4.5rem; padding-bottom: 0.5rem; border-bottom: 2px solid #10203a; } .ds-sign-autograph { font-size: 1.875rem; font-style: italic; font-weight: 600; line-height: 1; } .ds-sign-cross { flex: none; width: 1.75rem; height: 1.75rem; margin-bottom: 0.9rem; } .ds-sign-party { margin: 0.625rem 0 0; font-size: 1rem; line-height: 1.5; } .ds-sign-party b { font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; } .ds-sign-btn { display: inline-flex; align-items: center; gap: 0.75rem; margin-bottom: -0.375rem; padding: 1.05rem 1.25rem; border: 2px solid #10203a; border-radius: 0; background: #c8102e; color: #fff; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; font-weight: 800; line-height: 1.15; text-decoration: none; transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-sign-btn:hover { background: #10203a; } .ds-sign-btn:active { transform: translateY(2px); } .ds-sign-btn:focus-visible { outline: 3px solid #10203a; outline-offset: 3px; } .ds-sign-btn svg { flex: none; width: 1.375rem; height: 1.375rem; transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1); } .ds-sign-btn:hover svg { transform: translateX(4px); }"
+    },
+    {
+      "name": "Clause / Schedule Row",
+      "kind": "custom",
+      "refersTo": "clause-row",
+      "description": "A numbered row inside a clause or schedule: reference, name and text, ruled 1px above each row and beneath the list.",
+      "html": "<ol class=\"ds-rows\"><li class=\"ds-row\"><span class=\"ds-row-num\">2.2</span><h3 class=\"ds-row-name\">Scope and price</h3><p class=\"ds-row-text\">We agree what will be built and what it will cost. Both are fixed before work starts.</p></li><li class=\"ds-row\"><span class=\"ds-row-num\">2.3</span><h3 class=\"ds-row-name\">Start</h3><p class=\"ds-row-text\">Work begins within days of that agreement.</p></li></ol>",
+      "css": ".ds-rows { margin: 0; padding: 0 1.5rem; list-style: none; border-bottom: 1px solid #10203a; background: #e4efe6; color: #10203a; font-family: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif; font-size: 1.1875rem; line-height: 1.5; } .ds-row { display: grid; grid-template-columns: 4rem minmax(0, 5fr) minmax(0, 7fr); gap: 0.25rem 1.5rem; align-items: baseline; padding: 1rem 0 1.125rem; border-top: 1px solid #10203a; } .ds-row-num { font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; padding-top: 0.3rem; } .ds-row-name { margin: 0; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 1.625rem; font-weight: 800; line-height: 1.15; letter-spacing: -0.015em; } .ds-row-text { margin: 0; max-width: 36rem; }"
+    },
+    {
+      "name": "Schedule Index List",
+      "kind": "custom",
+      "refersTo": "schedule-index",
+      "description": "A short table of contents for a schedule: uppercase label with italic aside, then ruled rows of reference and linked name.",
+      "html": "<div class=\"ds-index\"><h2 class=\"ds-index-title\">Schedule A<i>Services</i></h2><ol><li><b>A.1</b><a href=\"#\">Agentic AI and machine learning</a></li><li><b>A.2</b><a href=\"#\">APIs and integrations</a></li><li><b>A.3</b><a href=\"#\">Web applications</a></li><li><b>A.4</b><a href=\"#\">Business tooling</a></li></ol></div>",
+      "css": ".ds-index { max-width: 22rem; padding: 1.25rem 1.5rem 1rem; border-left: 1px solid #10203a; background: #e4efe6; color: #10203a; font-family: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif; font-size: 1.0625rem; } .ds-index-title { margin: 0; font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-size: 1.0625rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; } .ds-index-title i { margin-left: 0.6em; font-family: 'Source Serif 4 Variable', Georgia, 'Times New Roman', serif; font-weight: 400; letter-spacing: 0; text-transform: none; } .ds-index ol { margin: 0.75rem 0 0; padding: 0; list-style: none; } .ds-index li { display: grid; grid-template-columns: 2.75rem minmax(0, 1fr); padding: 0.5rem 0; border-top: 1px solid #10203a; line-height: 1.3; } .ds-index li b { font-family: 'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif; font-weight: 700; } .ds-index li a { color: inherit; text-decoration: none; } .ds-index li a:hover { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.2em; } .ds-index li a:focus-visible { outline: 3px solid #10203a; outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Statement of Work",
+    "overview": "The home page is the fixed-price engagement document a founder would sign. It is laid out as that document: a title block across the top that doubles as navigation, numbered clauses hanging in a ruled margin, schedules that itemise services and exhibits, and a signature block where the firm has already signed and the visitor's line is the booking button. The promise \"On Time. On Budget. On Demand.\" is set as clause 1 at display scale, each part with its clause number and the mechanism that keeps it.\n\nThe material is flat ink on pale green bond paper. Structure comes from ruled lines and a double margin rule, never from boxes, tints or depth. Two typefaces do all the work: a heavy grotesque for everything that is numbered, titled or pressed, and a text serif for everything that is read. One red exists, and it means \"this is the commitment\": the FIXED PRICE stamp and the booking buttons. The page is dense and plain on purpose; it should read as a document someone could print and sign, not as a marketing template.\n\n**Scope.** This world currently covers the home page only, through `DocumentLayout`. `/contact`, `/privacy`, `/terms`, `/proof-of-consent` and the blog routes still render in the old AstroWind template layout (`PageLayout`, Inter, blue #0161EF, pill buttons). That old look is superseded and should not be extended. The site is light-only in this world. All tokens are CSS custom properties prefixed `--sow-`, declared on `.sow` (not `:root`) in `src/assets/styles/document.css`.",
+    "keyCharacteristics": [
+      "A document, not a landing page: title block, numbered clauses, schedules, signature block, imprint.",
+      "Flat ink on paper. No shadows, gradients, tints or cards.",
+      "Ruled lines carry the structure: 1px between rows, 2px between clauses, 4px at the title block, signature block and footer.",
+      "A double margin rule runs the full height of the sheet, with clause numbers hanging to its left.",
+      "One red, reserved for the stamp and the booking buttons.",
+      "Square corners everywhere; the stamp is the only rotated element.",
+      "One primary action, repeated: book the consultation."
+    ],
+    "rules": [
+      {
+        "name": "The One Red Rule",
+        "body": "Stamp Red appears on the FIXED PRICE stamp and the large booking button on the signature line only. Links never turn red; a link is ink with an underline that thickens on hover.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Inks Rule",
+        "body": "Text is Contract Ink. Soft Ink is for asides and reference prefixes, never for clause text, headings or links.",
+        "section": "colors"
+      },
+      {
+        "name": "The Pressed and Read Rule",
+        "body": "Libre Franklin at 800 is for clause numbers, headings and controls. Source Serif 4 is for sentences. A sentence is never set in the sans; a heading is never set in the serif.",
+        "section": "typography"
+      },
+      {
+        "name": "The Typeset Signature Rule",
+        "body": "The signature is Source Serif 4 italic. No script or handwriting face is ever used to fake a pen.",
+        "section": "typography"
+      },
+      {
+        "name": "The Ruled Line Rule",
+        "body": "Separation is a line. 1px ink between rows and promise lines, 2px between clauses and under a signature, 4px for the title block, signature block and footer. If something needs separating and a line will not do it, the layout is wrong.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep one primary action, the booking button, and repeat it rather than adding a second kind of call to action.",
+      "Do separate things with ruled lines in Contract Ink: 1px for rows, 2px for clauses, 4px for the title block, signature block and footer.",
+      "Do hang every clause number in the margin column, right-aligned against the double margin rule.",
+      "Do set numbers, headings and controls in Libre Franklin 800 and sentences in Source Serif 4.",
+      "Do use italic Source Serif 4 for document asides and the signature.",
+      "Do keep links in ink with an underline that thickens on hover, and a 3px ink focus outline offset 3px.",
+      "Do keep corners square and the page flat.",
+      "Do gate motion behind `prefers-reduced-motion: no-preference`, and limit it to the stamp landing plus the button's colour change and 4px arrow nudge.",
+      "Do read tokens from the `--sow-` custom properties on `.sow`, and build new pages in this world on `DocumentLayout`.",
+      "Do leave exhibits empty until real case studies and testimonials are supplied."
+    ],
+    "donts": [
+      "Don't use cards, pills, gradients or shadows.",
+      "Don't use Stamp Red for anything but the FIXED PRICE stamp and the booking buttons. Links never turn red.",
+      "Don't use a script or handwriting font for the signature.",
+      "Don't round a corner or rotate anything other than the stamp.",
+      "Don't invent clients, testimonials, dates, durations or prices, and don't state price figures.",
+      "Don't add a second accent colour, a tinted panel or a dark theme; this world is light-only.",
+      "Don't animate anything on scroll or add further entrance animations; the stamp is the one authored moment.",
+      "Don't extend the old AstroWind look (Inter, blue #0161EF, pill buttons, centred hero over service cards) to new work.",
+      "Don't centre the sheet in a max-width container; the margin rule and left alignment are the layout."
+    ]
+  }
+}

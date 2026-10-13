@@ -1,0 +1,65 @@
+---
+export interface Props {
+  lead: string;
+  promises: { words: string; how: string }[];
+  services: { ref: string; name: string; short?: string }[];
+  stamp?: string;
+}
+
+const { lead, promises, services, stamp } = Astro.props;
+---
+
+<section class="sow-undertaking" aria-labelledby="promise">
+  <p class="sow-num sow-num--lead" aria-hidden="true">1</p>
+  <p class="sow-lead">{lead}</p>
+
+  <h1 class="sow-promise" id="promise">
+    {
+      promises.map(({ words }, index) => (
+        <span
+          class:list={['sow-promise__words', { 'sow-promise__words--last': index === promises.length - 1 }]}
+          style={`--i:${index + 1}`}
+        >
+          {words}{' '}
+        </span>
+      ))
+    }
+  </h1>
+  {
+    promises.map(({ words, how }, index) => (
+      <>
+        <p class="sow-num" style={`--i:${index + 1}`} aria-hidden="true">
+          1.{index + 1}
+        </p>
+        <p class:list={['sow-how', { 'sow-how--last': index === promises.length - 1 }]} style={`--i:${index + 1}`}>
+          <span class="sr-only">{words} </span>
+          {how}
+        </p>
+      </>
+    ))
+  }
+
+  {
+    stamp && (
+      <p class="sow-stamp" aria-hidden="true">
+        {stamp}
+      </p>
+    )
+  }
+
+  <div class="sow-index">
+    <h2 class="sow-index__title">
+      <span class="whitespace-nowrap">Schedule A</span><i>Services</i>
+    </h2>
+    <ol>
+      {
+        services.map(({ ref, name, short }) => (
+          <li>
+            <b>{ref}</b>
+            <a href="#services">{short ?? name}</a>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
