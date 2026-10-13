@@ -10,6 +10,7 @@ target_fingerprint: "sha256:3abcf202d53c8451a1d49f646a3d23542ecc0c6779a2f9ffc96f
 target_path: /home/alexanderg/Development/garber-squared/src/pages/index.astro
 timestamp: 2026-10-13T01-23-35Z
 slug: src-pages-index-astro
+closed: true
 ---
 Method: dual-agent (A: independent design review · B: detector and browser evidence)
 

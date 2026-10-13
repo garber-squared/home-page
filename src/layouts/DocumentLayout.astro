@@ -15,9 +15,18 @@ const { metadata } = Astro.props;
 ---
 
 <Layout metadata={metadata}>
+  <link
+    slot="head"
+    rel="preload"
+    as="font"
+    type="font/woff2"
+    href="/fonts/libre-franklin-latin-wght-normal.woff2"
+    crossorigin
+  />
   <div class="sow">
+    <a class="sow-skip" href="#content">Skip to content</a>
     <DocumentHeader />
-    <main class="sow-sheet">
+    <main class="sow-sheet" id="content" tabindex="-1">
       <slot />
     </main>
     <DocumentFooter />

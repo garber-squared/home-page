@@ -47,19 +47,22 @@ const { lead, promises, services, stamp } = Astro.props;
     )
   }
 
-  <div class="sow-index">
-    <h2 class="sow-index__title">
-      <span class="whitespace-nowrap">Schedule A</span><i>Services</i>
-    </h2>
+  <nav class="sow-index" aria-label="Schedule A, services">
+    <p class="sow-index__title">
+      <span class="whitespace-nowrap">Schedule A</span>
+      <i>Services</i>
+    </p>
     <ol>
       {
         services.map(({ ref, name, short }) => (
           <li>
-            <b>{ref}</b>
-            <a href="#services">{short ?? name}</a>
+            <a href="#services">
+              <b>{ref}</b>
+              <span>{short ?? name}</span>
+            </a>
           </li>
         ))
       }
     </ol>
-  </div>
+  </nav>
 </section>

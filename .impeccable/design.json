@@ -124,6 +124,18 @@
       "stamp": {
         "displayName": "Stamp",
         "purpose": "FIXED PRICE, uppercase and tracked."
+      },
+      "heading": {
+        "displayName": "Heading",
+        "purpose": "Section headings inside long-form legal text; also the tablet step of row titles."
+      },
+      "numeral-large": {
+        "displayName": "Numeral Large",
+        "purpose": "Clause numbers in the margin from 64rem."
+      },
+      "fine": {
+        "displayName": "Fine",
+        "purpose": "Navigation links below 22.5rem only."
       }
     },
     "shadows": [],

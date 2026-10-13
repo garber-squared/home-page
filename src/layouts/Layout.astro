@@ -23,13 +23,14 @@ const { language, textDirection } = I18N;
 ---
 
 <!doctype html>
-<html lang={language} dir={textDirection} class="2xl:text-[20px]">
+<html lang={language} dir={textDirection} class="2xl:text-[125%]">
   <head>
     <CommonMeta />
     <Favicons />
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
+    <slot name="head" />
 
     <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />

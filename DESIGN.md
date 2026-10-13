@@ -28,13 +28,13 @@ typography:
     letterSpacing: "-0.015em"
   numeral:
     fontFamily: "'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif"
-    fontSize: "1.5rem"
+    fontSize: "2.25rem"
     fontWeight: 800
     lineHeight: 1
     letterSpacing: "-0.02em"
   lead:
     fontFamily: "'Source Serif 4 Variable', Georgia, 'Times New Roman', serif"
-    fontSize: "1.1875rem"
+    fontSize: "1.25rem"
     fontWeight: 400
     lineHeight: 1.4
   body:
@@ -50,18 +50,18 @@ typography:
     lineHeight: 1.5
   autograph:
     fontFamily: "'Source Serif 4 Variable', Georgia, 'Times New Roman', serif"
-    fontSize: "1.875rem"
+    fontSize: "1.625rem"
     fontWeight: 600
     lineHeight: 1
   label:
     fontFamily: "'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif"
-    fontSize: "1.0625rem"
+    fontSize: "1rem"
     fontWeight: 800
     lineHeight: 1.5
     letterSpacing: "0.08em"
   control:
     fontFamily: "'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif"
-    fontSize: "1.0625rem"
+    fontSize: "1rem"
     fontWeight: 800
     lineHeight: 1.15
   stamp:
@@ -70,6 +70,23 @@ typography:
     fontWeight: 800
     lineHeight: 1
     letterSpacing: "0.09em"
+  heading:
+    fontFamily: "'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif"
+    fontSize: "1.625rem"
+    fontWeight: 800
+    lineHeight: 1.15
+    letterSpacing: "-0.015em"
+  numeral-large:
+    fontFamily: "'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif"
+    fontSize: "3rem"
+    fontWeight: 800
+    lineHeight: 1
+    letterSpacing: "-0.02em"
+  fine:
+    fontFamily: "'Libre Franklin Variable', 'Helvetica Neue', Arial, sans-serif"
+    fontSize: "0.875rem"
+    fontWeight: 700
+    lineHeight: 1.5
 rounded:
   none: "0px"
 spacing:
@@ -186,17 +203,22 @@ Four colours and a reversed white: paper, two inks, and one red that is kept rar
 
 ### Hierarchy
 
-- **Display** (Libre Franklin 800, clamp(2.75rem, 13.5vw, 6rem), line-height 1, -0.035em): the three promise lines. Never wraps. From 40rem the clamp is clamp(3.5rem, 11vw, 6rem); from 64rem, clamp(4.25rem, 7.1vw, 6rem) at line-height 1.08.
-- **Headline** (Libre Franklin 800, clamp(2rem, 8vw, 4.5rem), line-height 1, -0.035em, balanced wrap): clause and schedule titles.
-- **Title** (Libre Franklin 800, 1.375rem, 1.625rem from 40rem, line-height 1.15, -0.015em): the name of a row inside a clause.
-- **Numeral** (Libre Franklin 800, line-height 1, -0.02em, right-aligned): clause numbers in the margin. 1.5rem on small screens rising to 3.25rem at 80rem for clause numbers; sub-clause numbers 1.125rem rising to 2.5rem. Row references ("2.1", "A.3") are weight 700 at body size.
-- **Lead** (Source Serif 4 400, 1.1875rem rising to 1.375rem at 80rem, line-height 1.4): the opening sentence of clause 1 and clause intros (line-height 1.45). Capped at 38rem to 40rem.
-- **Body** (Source Serif 4 400, 1.125rem, 1.1875rem from 40rem, line-height 1.5): clause text. Row text is capped at 36rem.
-- **Aside** (Source Serif 4 italic 400, 1rem): clause notes in Soft Ink, row references, the italic half of a section label, "Statement of Work" in the title block.
-- **Autograph** (Source Serif 4 italic 600, 1.875rem, 2.375rem from 64rem, line-height 1): the typeset signature.
-- **Label** (Libre Franklin 800, 1.0625rem, 0.08em, uppercase): the titles of the signature block and the schedule index, each followed by an italic serif aside. The firm name in the title block and footer uses the same style at 0.04em.
-- **Control** (Libre Franklin 800, 1.0625rem rising to 1.25rem at 80rem, line-height 1.15): booking button. Navigation links are weight 700 at 0.9375rem.
-- **Stamp** (Libre Franklin 800, 1.125rem rising to 2.25rem at 80rem, 0.09em, uppercase): FIXED PRICE.
+Every size comes from one scale of eight fixed steps and two fluid roles, declared as `--sow-fs-*` custom properties on `.sow`: fine 0.875rem, small 1rem, body 1.125rem, lead 1.25rem, title 1.375rem, heading 1.625rem, numeral 2.25rem, numeral-large 3rem, headline clamp(2rem, 8vw, 4.5rem) and display clamp(2.75rem, slope, 6rem). Roles move between steps at breakpoints; they never take a size from outside the scale.
+
+- **Display** (Libre Franklin 800, display, line-height 1, -0.035em): the three promise lines. Never wraps. The clamp's slope is 13.5vw, 11vw from 40rem and 7.1vw from 64rem (line-height 1.08), set through `--sow-display-slope`.
+- **Headline** (Libre Franklin 800, headline, line-height 1, -0.035em, balanced wrap): clause and schedule titles, and the title of a legal page.
+- **Heading** (Libre Franklin 800, heading, line-height 1.15, -0.015em): section headings inside long-form legal text.
+- **Title** (Libre Franklin 800, title, heading from 40rem, line-height 1.15, -0.015em): the name of a row inside a clause.
+- **Numeral** (Libre Franklin 800, line-height 1, -0.02em, right-aligned): clause numbers in the margin step heading, numeral, numeral-large; sub-clause numbers step body, heading, numeral. Row references ("2.1", "A.3") are weight 700 at body size.
+- **Lead** (Source Serif 4 400, lead, title from 64rem, line-height 1.4): the opening sentence of clause 1 and clause intros (line-height 1.45). Sub-headings in legal text use lead in Libre Franklin 700.
+- **Body** (Source Serif 4 400, body at every width, line-height 1.5): clause text. Running text is capped at 36rem, about 70 characters.
+- **Aside** (Source Serif 4 italic 400, small): clause notes in Soft Ink, row references, the italic half of a section label, "Statement of Work" in the title block. The footer and signature captions are small, upright.
+- **Autograph** (Source Serif 4 italic 600, heading, numeral from 64rem, line-height 1): the typeset signature.
+- **Label** (Libre Franklin 800, small, 0.08em, uppercase): the titles of the signature block and the schedule index, each followed by an italic serif aside. The firm name in the footer uses the same style at 0.04em.
+- **Control** (Libre Franklin 800, small, body from 40rem, lead from 80rem, line-height 1.15): booking button. Navigation links and the header button are small (weight 700 and 800); navigation drops to fine below 22.5rem so it stays on one row.
+- **Stamp** (Libre Franklin 800, 0.09em, uppercase): FIXED PRICE, stepping body, title, heading, numeral.
+
+The root font size is 125% from 96rem (Tailwind `2xl`), expressed as a percentage so a reader's browser text-size setting still applies.
 
 ### Named Rules
 
